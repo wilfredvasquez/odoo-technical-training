@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="motorcycle_registry_1" model="motorcycle.registry">
+            <field name="current_mileage">250</field>
+        </record>
+
+        <record id="motorcycle_registry_2" model="motorcycle.registry">
+            <field name="current_mileage">5250</field>
+            <field name="registry_date">2023-01-27</field>
+        </record>
+
+        <record id="motorcycle_registry_3" model="motorcycle.registry">
+            <field name="current_mileage">23250</field>
+            <field name="registry_date" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+        </record>
+    </data>
+</odoo>

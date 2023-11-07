@@ -17,5 +17,7 @@
     "category": "Kawiil/Motorcycle",
     "depends": ["base"],
     "data": [],
-    "demo": [],
+    "demo": [
+        "demo/motorcycle_register.xml",
+    ],
 }
