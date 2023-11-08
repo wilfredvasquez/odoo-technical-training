@@ -1,0 +1,82 @@
+* Crea un registro del modelo Motorcycle Registry. El registro debe tener más de 1,000 millas pero no matrícula (license plate).
+
+record = env['motorcycle.registry'].create([
+    {
+        'current_mileage': '1500',
+        'first_name': 'Test Name',
+        'last_name': 'Test Lastname',
+        'registry_date': '2023-11-08',
+        'registry_number': '123',
+        'vin': '321',
+    }
+])
+
+# Optional
+Pretty(record)
+
+* Busca todos los registros que tengan menos de 1000 millas.
+
+env['motorcycle.registry'].search_read([
+    ('current_mileage', '<', '1000')
+])
+
+or 
+
+Pretty (env['motorcycle.registry'].search_read([
+    ('current_mileage', '<', '1000')
+]))
+
+* Busca todos los registros que tengan una fecha de registro pero no tengan matrícula. Solamente muestra los campos: registry_number, vin, license_plate, and lastname
+
+env['motorcycle.registry'].search_read(
+    ['&', ('registry_date', '!=', False), ('license_plate', '=', False)],
+    ['registry_number', 'vin', 'license_plate', 'last_name']
+)
+
+or
+
+Pretty(
+    env['motorcycle.registry'].search_read(
+        ['&', ('registry_date', '!=', False), ('license_plate', '=', False)],
+        ['registry_number', 'vin', 'license_plate', 'last_name']
+    )
+)
+
+* Busca todos los registros que tengan una fecha de registro o una matrícula.
+
+env['motorcycle.registry'].search_read(
+    ['|', ('registry_date', '!=', False), ('license_plate', '!=', False)],
+    ['registry_number', 'vin', 'license_plate', 'last_name']
+)
+
+Pretty(
+    env['motorcycle.registry'].search_read(
+        ['|', ('registry_date', '!=', False), ('license_plate', '!=', False)],
+        ['registry_date', 'registry_number', 'vin', 'license_plate', 'last_name']
+    )
+)
+
+* Actualiza el nombre y apellido del registro que creaste a Francesco Bagnaia.
+
+# Search record
+record = env['motorcycle.registry'].search([('current_mileage', '=', '1500')])
+
+# Write / Update fields
+record.write({
+    'first_name': 'Francesco',
+    'last_name': 'Bagnaia'
+})
+
+# Show fields
+f"{record.first_name} {record.last_name}"
+
+* Elimina el registro del ejercicio anterior que lleva 250 millas.
+
+# Show all records
+Pretty(env['motorcycle.registry'].search_read([]))
+
+# Search record
+record = env['motorcycle.registry'].search([('current_mileage', '=', '250')])
+
+# Unlink record = Delete record
+record.unlink()
