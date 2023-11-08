@@ -16,7 +16,10 @@
     "application": True,
     "category": "Kawiil/Motorcycle",
     "depends": ["base"],
-    "data": [],
+    "data": [
+        "security/motorcycle_registry_groups.xml",
+        "security/ir.model.access.csv",
+    ],
     "demo": [
         "demo/motorcycle_register.xml",
     ],
