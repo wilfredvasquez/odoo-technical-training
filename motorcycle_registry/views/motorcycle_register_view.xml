@@ -51,6 +51,25 @@
         </field>
     </record>
 
+    <record model="ir.ui.view" id="motorcycle_registry_search">
+      <field name="name">motorcycle_registry_search</field>
+      <field name="model">motorcycle.registry</field>
+      <field name="arch" type="xml">
+        <search string="Search Registry">
+          <field name="registry_number" />
+          <field name="vin" />
+          <field name="first_name" />
+          <field name="last_name" />
+          <field name="license_plate" />
+          <separator/>
+          <group expand="0" name="group_by" string="Group By">
+            <filter name="group_registration_date" string="Registration Date" context="{'group_by': 'registry_date'}"/>
+          </group>
+          
+        </search>
+      </field>
+    </record>
+
     <record id="action_motorcycle_registry" model="ir.actions.act_window">
         <field name="name">Registry</field>
         <field name="type">ir.actions.act_window</field>
