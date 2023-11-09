@@ -6,11 +6,12 @@
         <field name="model">motorcycle.registry</field>
         <field name="arch" type="xml">
             <tree string="Registry">
-                <field name="current_mileage"/>
-                <field name="first_name"/>
-                <field name="last_name"/>
                 <field name="registry_number"/>
                 <field name="vin"/>
+                <field name="license_plate"/>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                
             </tree>
         </field>
     </record>
@@ -20,13 +21,32 @@
         <field name="model">motorcycle.registry</field>
         <field name="arch" type="xml">
             <form string="Registry">
-                <group>
-                    <field name="current_mileage"/>
-                    <field name="first_name"/>
-                    <field name="last_name"/>
-                    <field name="registry_number"/>
-                    <field name="vin"/>
-                </group>
+                <sheet>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field id="registry_number" class="text-break" name="registry_number" default_focus="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="motorcycle_information" string="Motorcycle Information">
+                            <field name="registry_date"/>
+                            <field name="vin"/>
+                            <field name="current_mileage"/>
+                            <field name="license_plate"/>
+                        </group>
+                        <group name="owner_information" string="Owner Information">
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Related Documents" name="motorcycle_related_documents">
+                            <group>
+                                <field name="certificate_title"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>
@@ -40,8 +60,15 @@
 
     <menuitem 
         name="Motorcycle Registry"
-        id="menu_motorcycle_registry"
+        id="menu_main_motorcycle_registry"
         web_icon="motorcycle_registry,static/description/icon.png"
+    />
+
+    <menuitem 
+        name="Motorcycle Registry"
+        id="menu_motorcycle_registry" 
+        parent="motorcycle_registry.menu_main_motorcycle_registry" 
+        sequence="1"
     />
 
     <menuitem 
