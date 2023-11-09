@@ -40,8 +40,15 @@
 
     <menuitem 
         name="Motorcycle Registry"
-        action="action_motorcycle_registry"
         id="menu_motorcycle_registry"
         web_icon="motorcycle_registry,static/description/icon.png"
+    />
+
+    <menuitem 
+        name="Registry"
+        action="action_motorcycle_registry"
+        id="menu_registry" 
+        parent="motorcycle_registry.menu_motorcycle_registry" 
+        sequence="1"
     />
 </odoo>
