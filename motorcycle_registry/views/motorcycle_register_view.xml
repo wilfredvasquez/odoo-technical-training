@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Motorcycle Registry -->
+    <record id="view_motorcycle_registry_tree" model="ir.ui.view">
+        <field name="name">motorcycle.registry.tree</field>
+        <field name="model">motorcycle.registry</field>
+        <field name="arch" type="xml">
+            <tree string="Registry">
+                <field name="registry_number"/>
+                <field name="vin"/>
+                <field name="make"/>
+                <field name="model"/>
+                <field name="license_plate"/>
+                <field name="owner_id"/>                
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_motorcycle_registry_form" model="ir.ui.view">
+        <field name="name">motorcycle.registry.form</field>
+        <field name="model">motorcycle.registry</field>
+        <field name="arch" type="xml">
+            <form string="Registry">
+                <sheet>
+                    <div class="oe_title mb24">
+                        <h1>
+                            <field id="registry_number" class="text-break" name="registry_number" default_focus="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="motorcycle_information" string="Motorcycle Information">
+                            <field name="registry_date"/>
+                            <field name="vin"/>
+                            <field name="make"/>
+                            <field name="model"/>
+                            <field name="year"/>
+                            <field name="current_mileage"/>
+                            <field name="license_plate"/>
+                        </group>
+                        <group name="owner_information" string="Owner Information">
+                            <field name="owner_id"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Related Documents" name="motorcycle_related_documents">
+                            <group>
+                                <field name="certificate_title"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="motorcycle_registry_search">
+      <field name="name">motorcycle_registry_search</field>
+      <field name="model">motorcycle.registry</field>
+      <field name="arch" type="xml">
+        <search string="Search Registry">
+          <field name="registry_number" />
+          <field name="vin" />
+          <field name="first_name" />
+          <field name="last_name" />
+          <field name="license_plate" />
+          <separator/>
+          <group expand="0" name="group_by" string="Group By">
+            <filter name="group_registration_date" string="Registration Date" context="{'group_by': 'registry_date'}"/>
+          </group>
+          
+        </search>
+      </field>
+    </record>
+
+    <record id="action_motorcycle_registry" model="ir.actions.act_window">
+        <field name="name">Registry</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">motorcycle.registry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        name="Motorcycle Registry"
+        id="menu_main_motorcycle_registry"
+        web_icon="motorcycle_registry,static/description/icon.png"
+    />
+
+    <menuitem 
+        name="Motorcycle Registry"
+        id="menu_motorcycle_registry" 
+        parent="motorcycle_registry.menu_main_motorcycle_registry" 
+        sequence="1"
+    />
+
+    <menuitem 
+        name="Registry"
+        action="action_motorcycle_registry"
+        id="menu_registry" 
+        parent="motorcycle_registry.menu_motorcycle_registry" 
+        sequence="1"
+    />
+</odoo>
