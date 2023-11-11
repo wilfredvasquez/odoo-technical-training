@@ -22,8 +22,11 @@ class MotorcycleRegistry(models.Model):
 
     certificate_title = fields.Binary(string="Título de Propiedad")
     current_mileage = fields.Float(string="Millaje Actual")
-    first_name = fields.Char(string="Nombre", required=True)
-    last_name = fields.Char(string="Apellido", required=True)
+    owner_id = fields.Many2one("res.partner", string="Propietario")
+    email = fields.Char(string="Email", related="owner_id.email", store=True)
+    phone = fields.Char(string="Phone", related="owner_id.phone", store=True)
+    first_name = fields.Char(string="Nombre")
+    last_name = fields.Char(string="Apellido")
     license_plate = fields.Char(string="Matrícula")
     registry_date = fields.Date()
     registry_number = fields.Char(
@@ -34,6 +37,9 @@ class MotorcycleRegistry(models.Model):
         readonly=True,
     )
     vin = fields.Char(string="VIN", required=True)
+    make = fields.Char(string="Marca", compute="_compute_make")
+    model = fields.Char(string="Modelo", compute="_compute_model")
+    year = fields.Char(string="Año", compute="_compute_year")
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -75,3 +81,27 @@ class MotorcycleRegistry(models.Model):
                     Por ejemplo: KAIN220M00023, KAUK21XL84732
                     """
                 )
+
+    @api.depends("vin")
+    def _compute_make(self):
+        for record in self:
+            if record.vin:
+                record.make = record.vin[0:2]
+            else:
+                record.make = ""
+
+    @api.depends("vin")
+    def _compute_model(self):
+        for record in self:
+            if record.vin:
+                record.model = record.vin[2:4]
+            else:
+                record.model = ""
+
+    @api.depends("vin")
+    def _compute_year(self):
+        for record in self:
+            if record.vin:
+                record.year = record.vin[4:6]
+            else:
+                record.year = ""
