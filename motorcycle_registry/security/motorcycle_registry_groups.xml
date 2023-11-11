@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_motorcycle_registry_user" model="res.groups">
+        <field name="name">Registry/User</field>
+        <field name="category_id" ref="base.module_category_kawiil_motorcycle"/>
+    </record>
+
+     <record id="group_motorcycle_registry_admin" model="res.groups">
+        <field name="name">Registry/Admin</field>
+        <field name="category_id" ref="base.module_category_kawiil_motorcycle"/>
+        <field name="implied_ids" eval="[(4, ref('group_motorcycle_registry_user'))]"/>
+    </record>
+</odoo>
