@@ -44,7 +44,7 @@ class MotorcycleRegistry(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get("registry_number", ("S0000")) == ("S0000"):
+            if vals.get("registry_number", ("MRN0000")) == ("MRN0000"):
                 vals["registry_number"] = self.env["ir.sequence"].next_by_code(
                     "registry.number"
                 )
