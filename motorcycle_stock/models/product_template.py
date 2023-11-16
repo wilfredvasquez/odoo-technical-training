@@ -19,7 +19,8 @@ class ProductTemplate(models.Model):
             ("0m", "Medium"),
             ("0l", "Larga"),
             ("xl", "Extra Large"),
-        ]
+        ],
+        string="Capacidad de batería",
     )
     charge_time = fields.Float("Tiempo de carga")
     range = fields.Float("Rango")
@@ -33,3 +34,8 @@ class ProductTemplate(models.Model):
         type_mapping = super()._detailed_type_mapping()
         type_mapping["motorcycle"] = "product"
         return type_mapping
+
+    def get_battery_capacity_value(self):
+        return dict(self._fields["battery_capacity"].selection).get(
+            self.battery_capacity
+        )

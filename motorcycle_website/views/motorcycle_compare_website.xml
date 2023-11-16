@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="motorcycle_compare_template" name="Motorcycle Compare">
+        <t t-call="website.layout">
+            <div class="mb-4 oe_structure">
+                <div id="wrap" class="mb-4 mt-4 container">
+                    <div class="card mb-4">
+                        <ol class="o_portal_submenu breadcrumb mb-0 py-2 flex-grow-1">
+                            <li class="breadcrumb-item ms-1"><a href="/my/home" aria-label="Home" title="Home"><i class="fa fa-home"/></a></li>
+                            <li class="breadcrumb-item">Comparación de Motocicletas</li>
+                        </ol>
+                    </div>
+                    <div class="mb-4 row justify-content-start">
+                        <div class="mb-4">
+                            <h4>Comparación de Motocicletas</h4>
+                            <hr />
+                            <p class="text-muted mb-4" style="font-size: 14px">Acá podrá ver y comparar las diferentes motocicletas que Kawiil ofrece.</p>
+                            <div id="wrap">
+                                <div class="oe_structure">
+                                    <div class="row flex">
+                                        <div class="card me-2 bg-info" style="width: 18rem;">
+                                            <div class="card-header">
+                                                <b>Especificaciones</b>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Fecha de Lanzamiento</li>
+                                                <li class="list-group-item">Rango</li>
+                                                <li class="list-group-item">Caballos de Fuerza</li>
+                                                <li class="list-group-item">Torque</li>
+                                                <li class="list-group-item">Velocidad Máxima</li>
+                                                <li class="list-group-item">Capacidad de batería</li>
+                                                <li class="list-group-item">Peso</li>
+                                                <li class="list-group-item">Price</li>
+                                            </ul>
+                                        </div>
+                                        <t t-foreach="motorcycles" t-as="moto">
+                                            <div class="card me-2" style="width: 14rem;">
+                                                <div class="card-header">
+                                                    <b><t t-esc="moto.name"/></b>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item"><t t-esc="moto.launch_date"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.range"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.horsepower"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.torque"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.top_speed"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.get_battery_capacity_value()"/></li>
+                                                    <li class="list-group-item"><t t-esc="moto.curb_weight"/></li>
+                                                    <li class="list-group-item"><b>$<t t-esc="moto.list_price"/></b></li>
+                                                </ul>
+                                            </div>
+                                           
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

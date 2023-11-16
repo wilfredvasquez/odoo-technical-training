@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_motorcycles" name="motorcycles" inherit_id="portal.portal_my_home" >
+        <xpath expr="//div[@id='oe_structure_portal_my_home_2']" position="inside">
+            <div class="mt-4">
+                <h3>Motocicletas Kawill</h3>
+                <div class="mt-2 o_portal_docs list-group">
+                    <a t-attf-href="/compare" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+                        <span>Comparación</span>
+                    </a>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
