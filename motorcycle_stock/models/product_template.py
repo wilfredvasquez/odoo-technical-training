@@ -27,6 +27,7 @@ class ProductTemplate(models.Model):
     make = fields.Char("Marca")
     model = fields.Char("Modelo")
     year = fields.Char("Año")
+    launch_date = fields.Date("Fecha de Lanzamiento")
 
     def _detailed_type_mapping(self):
         type_mapping = super()._detailed_type_mapping()
