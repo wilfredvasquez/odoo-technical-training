@@ -16,6 +16,6 @@
     "application": True,
     "category": "Kawiil/Motorcycle",
     "depends": ["stock"],
-    "data": [],
+    "data": ["views/product_template_inherit.xml"],
     "demo": [],
 }
