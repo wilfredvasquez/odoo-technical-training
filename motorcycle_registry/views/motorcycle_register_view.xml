@@ -30,6 +30,7 @@
                     <group>
                         <group name="motorcycle_information" string="Motorcycle Information">
                             <field name="registry_date"/>
+                            <field name="motorcycle_id"/>
                             <field name="vin"/>
                             <field name="make"/>
                             <field name="model"/>

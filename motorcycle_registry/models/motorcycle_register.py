@@ -40,6 +40,11 @@ class MotorcycleRegistry(models.Model):
     make = fields.Char(string="Marca", compute="_compute_make")
     model = fields.Char(string="Modelo", compute="_compute_model")
     year = fields.Char(string="Año", compute="_compute_year")
+    motorcycle_id = fields.Many2one(
+        "product.template",
+        string="Motocicleta",
+        domain=lambda self: [("detailed_type", "=", "motorcycle")],
+    )
 
     @api.model_create_multi
     def create(self, vals_list):
