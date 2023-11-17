@@ -79,7 +79,7 @@
         <field name="name">Registry</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">motorcycle.registry</field>
-        <field name="view_mode">map,tree,form</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem 

@@ -15,7 +15,7 @@
     "maintainer": "wilfredvasquez",
     "application": True,
     "category": "Kawiil/Motorcycle",
-    "depends": ["stock"],
+    "depends": ["sale", "stock"],
     "data": ["views/product_template_inherit.xml"],
     "demo": ["demo/motorcycle_product.xml"],
 }
