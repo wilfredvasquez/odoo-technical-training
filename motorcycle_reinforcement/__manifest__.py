@@ -1,10 +1,10 @@
 {
-    "name": "Motorcycle Stock",
-    "summary": """Extend Stock app for Motorcycle""",
+    "name": "Motorcycle Reinforcement",
+    "summary": """Reinforcement for Motorcycle course""",
     "description": """
-        Motorcycle Stock
+        Motorcycle Reinforcement
         ====================
-        This Module is used to extend Stock app for Kawill Motorcycle.
+        This Module is used to add features for Kawill Motorcycle process.
     """,
     "version": "0.0.1",
     "author": "wilfredvasquez",
@@ -15,7 +15,7 @@
     "maintainer": "wilfredvasquez",
     "application": True,
     "category": "Kawiil/Motorcycle",
-    "depends": ["sale", "stock"],
-    "data": ["views/product_template_inherit.xml"],
-    "demo": ["demo/motorcycle_product.xml"],
+    "depends": ["sale", "motorcycle_stock"],
+    "data": ["data/product_pricelist.xml", "views/product_template_inherit.xml"],
+    "demo": [],
 }
