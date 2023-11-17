@@ -15,7 +15,7 @@
     "maintainer": "wilfredvasquez",
     "application": True,
     "category": "Kawiil/Motorcycle",
-    "depends": ["base"],
+    "depends": ["base", "motorcycle_stock"],
     "data": [
         "security/motorcycle_registry_groups.xml",
         "security/ir.model.access.csv",
