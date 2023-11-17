@@ -5,7 +5,6 @@
             <field name="current_mileage">250</field>
             <field name="first_name">Name 1</field>
             <field name="last_name">Lastname 1</field>
-            <field name="registry_number">1-123456</field>
             <field name="vin">KAIN220M00023</field>
         </record>
 
@@ -13,7 +12,6 @@
             <field name="current_mileage">5250</field>
             <field name="first_name">Name 2</field>
             <field name="last_name">Lastname 2</field>
-            <field name="registry_number">2-123456</field>
             <field name="vin">KAUK21XL84732</field>
             <field name="registry_date">2023-01-27</field>
         </record>
@@ -22,7 +20,6 @@
             <field name="current_mileage">23250</field>
             <field name="first_name">Name 3</field>
             <field name="last_name">Lastname 3</field>
-            <field name="registry_number">3-123456</field>
             <field name="vin">KAUK21XL84733</field>
             <field name="registry_date" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
         </record>
