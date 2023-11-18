@@ -91,7 +91,7 @@ class MotorcycleRegistry(models.Model):
     def _compute_make(self):
         for record in self:
             if record.vin:
-                record.make = record.vin[0:2]
+                record.make = record.vin[0:2].upper()
             else:
                 record.make = ""
 
@@ -99,7 +99,7 @@ class MotorcycleRegistry(models.Model):
     def _compute_model(self):
         for record in self:
             if record.vin:
-                record.model = record.vin[2:4]
+                record.model = record.vin[2:4].upper()
             else:
                 record.model = ""
 
@@ -107,6 +107,6 @@ class MotorcycleRegistry(models.Model):
     def _compute_year(self):
         for record in self:
             if record.vin:
-                record.year = record.vin[4:6]
+                record.year = record.vin[4:6].upper()
             else:
                 record.year = ""

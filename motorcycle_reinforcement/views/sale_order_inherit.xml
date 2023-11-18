@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="motorcycle_reinforcement_saler_order_form">
+        <field name="name">motorcycle.reinforcement.saler.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="15"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header/button[@name='action_quotation_send']" position="before">
+                    <field name="is_new_customer" invisible="1" />
+                    <button 
+                        string="Aplicar descuento"
+                        type="object"
+                        class="oe_highlight"
+                        name="apply_new_customer_pricelist"
+                        attrs="{'invisible': ['|',('is_new_customer', '=', False),('state', '!=', 'draft')]}"
+                    />
+            </xpath>
+        </field>
+    </record>
+</odoo>
